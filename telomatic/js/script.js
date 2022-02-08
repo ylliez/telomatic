@@ -7,16 +7,24 @@ let myBLE;
 function setup() {
   myBLE = new p5ble();
 
-  // Create a 'Connect' button
-  const connectButton = createButton('Connect')
+  createBleButtons();
+
+}
+
+function createBleButtons() {
+  // connect button
+  const connectButton = createButton('Connect');
+  connectButton.position(10, 10);
   connectButton.mousePressed(connectToBle);
 
-  // Create a text input
+  // text input
   input = createInput();
+  input.position(10, 30);
 
-  // Create a 'Write' button
+  // write button
   const writeButton = createButton('Write');
   writeButton.mousePressed(writeToBle);
+  writeButton.position(10, 50);
 }
 
 function connectToBle() {

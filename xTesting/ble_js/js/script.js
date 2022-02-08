@@ -1,22 +1,23 @@
 // The serviceUuid must match the serviceUuid of the device you would like to connect
 const serviceUuid = "6e400001-b5a3-f393-e0a9-e50e24dcca9e";
-let myCharacteristic;
-let input;
-let myBLE;
+let myBLE, myCharacteristic;
+let connectButton, onButton, offButton;
 
 function setup() {
   myBLE = new p5ble();
+  createBleButtons();
+}
 
-  // Create a 'Connect' button
-  const connectButton = createButton('Connect')
+function createBleButtons() {
+  // connect button
+  connectButton = createButton('Connect')
   connectButton.mousePressed(connectToBle);
-
-  // Create a text input
-  input = createInput();
-
-  // Create a 'Write' button
-  const writeButton = createButton('Write');
-  writeButton.mousePressed(writeToBle);
+  // on button
+  onButton = createButton('On');
+  onButton.mousePressed(bleOn);
+  // off button
+  offButton = createButton('Off');
+  offButton.mousePressed(bleOff);
 }
 
 function connectToBle() {
@@ -31,8 +32,6 @@ function gotCharacteristics(error, characteristics) {
   myCharacteristic = characteristics[0];
 }
 
-function writeToBle() {
-  const inputValue = input.value();
-  // Write the value of the input to the myCharacteristic
-  myBLE.write(myCharacteristic, inputValue);
-}
+function bleOn() { myBLE.write(myCharacteristic, 255); }
+
+function bleOff() { myBLE.write(myCharacteristic, 0); }

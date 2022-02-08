@@ -8,7 +8,7 @@ function setup() {
   myBLE = new p5ble();
 
   // Create a 'Connect' button
-  const connectButton = createButton('Connect')
+  const connectButton = createButton('Connect');
   connectButton.mousePressed(connectToBle);
 
   // Create a text input
