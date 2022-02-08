@@ -1,5 +1,5 @@
 // The serviceUuid must match the serviceUuid of the device you would like to connect
-const serviceUuid = "19b10000-e8f2-537e-4f6c-d104768a1214";
+const serviceUuid = "6e400001-b5a3-f393-e0a9-e50e24dcca9e";
 let myCharacteristic;
 let input;
 let myBLE;
