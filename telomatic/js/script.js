@@ -126,6 +126,11 @@ function triggerTelomatic() {
   if (writeOn) {
     intensity = 255 - floor(index.tip.y / height * 255);
     console.log(intensity);
-    myBLE.write(myCharacteristic, intensity);
+    if (intensity > 50) {
+      myBLE.write(myCharacteristic, intensity);
+    }
+    else {
+      myBLE.write(myCharacteristic, 0);
+    }
   }
 }
