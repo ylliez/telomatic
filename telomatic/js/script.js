@@ -19,12 +19,14 @@ let index;
 let trailBlazer;
 
 function setup() {
+  /* general setup */
+  createCanvas(640, 480);
+
   /* ble setup */
   myBLE = new p5ble();
   createBleButtons();
 
   /* ml5 setup */
-  createCanvas(640, 480);
   // Start webcam and hide the resulting HTML element
   video = createCapture(VIDEO);
   video.hide();
@@ -40,13 +42,16 @@ function setup() {
 
 function createBleButtons() {
   // connect button
-  connectButton = createButton('Connect')
+  connectButton = createButton('Connect');
+  connectButton.position(width/10, height/10);
   connectButton.mousePressed(connectToBle);
   // on button
   onButton = createButton('On');
+  onButton.position(width/10, 2*height/10);
   onButton.mousePressed(bleOn);
   // off button
   offButton = createButton('Off');
+  offButton.position(width/10, 3*height/10);
   offButton.mousePressed(bleOff);
 }
 
