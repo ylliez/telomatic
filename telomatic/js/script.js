@@ -64,6 +64,7 @@ function gotCharacteristics(error, characteristics) {
 
 function bleOn() {
   writeOn = true;
+  trailBlazer.clear();
 }
 
 function bleOff() {
