@@ -6,15 +6,13 @@ let state = `loading`;
 
 /* ble */
 const serviceUuid = "6e400001-b5a3-f393-e0a9-e50e24dcca9e";
-let myBLE, myCharacteristic;
+let myBLE, myCharacteristic, writeOn, intensity;
 let connectButton, onButton, offButton;
 
 /* ml5 */
-// user webcam feed
-let video;
-// handpose object
-let handpose;
-// current set of predictions made by Handpose once it's running
+// webcam feed & handpose object
+let video, handpose;
+// holder for handpose predictions
 let predictions = [];
 let index;
 // graphics elements for drawing overlay
@@ -64,9 +62,14 @@ function gotCharacteristics(error, characteristics) {
   myCharacteristic = characteristics[0];
 }
 
-function bleOn() { myBLE.write(myCharacteristic, 255); }
+function bleOn() {
+  writeOn = true;
+}
 
-function bleOff() { myBLE.write(myCharacteristic, 0); }
+function bleOff() {
+  writeOn = false;
+  myBLE.write(myCharacteristic, 0);
+}
 
 /**
 Handles the two states of the program: loading, running
@@ -98,14 +101,13 @@ function running() {
   let flippedVideo = ml5.flipImage(video);
   image(flippedVideo, 0, 0, width, height);
 
-  // startButton.draw();
-
   // Check if there currently predictions to display
   if (predictions.length > 0) {
     index.coordinates = predictions[0];
     index.coordinate();
   }
   drawIndexTip();
+  triggerTelomatic();
 }
 
 //
@@ -117,4 +119,12 @@ function drawIndexTip() {
   trailBlazer.line(index.prev.x, index.prev.y, index.tip.x, index.tip.y);
   trailBlazer.pop();
   image(trailBlazer, 0, 0);
+}
+
+function triggerTelomatic() {
+  if (writeOn) {
+    intensity = 255 - floor(index.tip.y / height * 255);
+    console.log(intensity);
+    myBLE.write(myCharacteristic, intensity);
+  }
 }
