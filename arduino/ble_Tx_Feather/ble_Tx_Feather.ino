@@ -93,8 +93,8 @@ void setup(void) {
   
   pinMode(teloPin, OUTPUT);
 
-  while (!Serial);
-  delay(500);
+//  while (!Serial);
+//  delay(500);
 
   Serial.begin(115200);
   Serial.println(F("----------------"));
