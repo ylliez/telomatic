@@ -16,7 +16,11 @@ let trailBlazer;
 Starts the webcam and the Handpose
 */
 function setup() {
-  createCanvas(640, 480);
+  // createCanvas(640, 480);
+  // createCanvas(windowWidth, windowHeight);
+  // createCanvas(1280, 960);
+  createCanvas(1920, 1440);
+
 
   // Start webcam and hide the resulting HTML element
   video = createCapture(VIDEO);
@@ -67,14 +71,13 @@ function running() {
   let flippedVideo = ml5.flipImage(video);
   image(flippedVideo, 0, 0, width, height);
 
-  startButton.draw();
+  // startButton.draw();
 
   // Check if there currently predictions to display
   if (predictions.length > 0) {
     index.coordinates = predictions[0];
     index.coordinate();
   }
-
 
   drawIndexTip();
 }
@@ -84,8 +87,14 @@ function drawIndexTip() {
   trailBlazer.push();
   trailBlazer.stroke(255,0,0);
   trailBlazer.strokeWeight(3);
-  // console.log(`${index.prev.x}, ${index.prev.y}, ${index.tip.x}, ${index.tip.y}`);
-  trailBlazer.line(index.prev.x, index.prev.y, index.tip.x, index.tip.y);
+  // 640 x 480
+  // trailBlazer.line(index.prev.x, index.prev.y, index.tip.x, index.tip.y);
+  // width x height
+  // trailBlazer.line(index.prev.x/640*width, index.prev.y/480*height, index.tip.x/640*width, index.tip.y/480*height);
+  // 1280 x 960
+  // trailBlazer.line(index.prev.x*2, index.prev.y*2, index.tip.x*2, index.tip.y*2);
+  // 1920 x 1440
+  trailBlazer.line(index.prev.x*3, index.prev.y*3, index.tip.x*3, index.tip.y*3);
   trailBlazer.pop();
   image(trailBlazer, 0, 0);
 }
