@@ -7,7 +7,7 @@ let state = `loading`;
 /* ble */
 const serviceUuid = "6e400001-b5a3-f393-e0a9-e50e24dcca9e";
 let myBLE, myCharacteristic, writeOn, intensity;
-let connectButton, onButton, offButton;
+let connectButton, disconnectButton, onButton, offButton;
 
 /* ml5 */
 // webcam feed & handpose object
@@ -35,7 +35,7 @@ function setup() {
   video = createCapture(VIDEO);
   video.hide();
   // start the Handpose model and switch to our running state when it loads
-  handpose = ml5.handpose(video, { flipHorizontal: true }, () => { state = `running`; });
+  handpose = ml5.handpose(video, { flipHorizontal: true }, () => { state = `running`; connectButton.show(); });
   // listen for prediction events from Handpose and store the results in our predictions array when they occur
   handpose.on(`predict`, (results) => { predictions = results; });
   // index finger object
@@ -49,19 +49,42 @@ function createBleButtons() {
   connectButton = createButton('Connect');
   connectButton.position(width/10, height/10);
   connectButton.mousePressed(connectToBle);
+  connectButton.hide();
+  // disconnect button
+  disconnectButton = createButton('Disconnect');
+  disconnectButton.position(width/10, height/10);
+  disconnectButton.mousePressed(disconnectToBle);
+  disconnectButton.hide();
   // on button
   onButton = createButton('On');
   onButton.position(width/10, 2*height/10);
   onButton.mousePressed(bleOn);
+  onButton.hide();
   // off button
   offButton = createButton('Off');
-  offButton.position(width/10, 3*height/10);
+  offButton.position(width/10, 2*height/10);
   offButton.mousePressed(bleOff);
+  offButton.hide();
 }
 
+// connect to device by passing the service UUID
 function connectToBle() {
-  // Connect to a device by passing the service UUID
+  connectButton.hide();
+  disconnectButton.show();
+  onButton.show();
   myBLE.connect(serviceUuid, gotCharacteristics);
+}
+
+// disconnect from device
+function disconnectToBle() {
+  connectButton.show();
+  disconnectButton.hide();
+  bleOff();
+  onButton.hide();
+  while(writeOn) { console.log(1); };
+  // offButton.hide();
+  // myBLE.write(myCharacteristic, 0);
+  myBLE.disconnect();
 }
 
 function gotCharacteristics(error, characteristics) {
@@ -72,11 +95,15 @@ function gotCharacteristics(error, characteristics) {
 }
 
 function bleOn() {
+  onButton.hide();
+  offButton.show();
   writeOn = true;
   trailBlazer.clear();
 }
 
 function bleOff() {
+  onButton.show();
+  offButton.hide();
   writeOn = false;
   myBLE.write(myCharacteristic, 0);
 }
