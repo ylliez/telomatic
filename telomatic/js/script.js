@@ -22,8 +22,8 @@ function setup() {
   /* general setup */
   // options for different displays (4:3 || relative) -> adapt createGraphics
   // createCanvas(640, 480);
-  // createCanvas(windowWidth, windowHeight);
-  createCanvas(1280, 960);
+  createCanvas(windowWidth, windowHeight);
+  // createCanvas(1280, 960);
   // createCanvas(1920, 1440);
 
   /* ble setup */
@@ -157,9 +157,9 @@ function drawIndexTip() {
   // 640 x 480
   // trailBlazer.line(index.prev.x, index.prev.y, index.tip.x, index.tip.y);
   // width x height
-  // trailBlazer.line(index.prev.x/640*width, index.prev.y/480*height, index.tip.x/640*width, index.tip.y/480*height);
+  trailBlazer.line(index.prev.x/640*width, index.prev.y/480*height, index.tip.x/640*width, index.tip.y/480*height);
   // 1280 x 960
-  trailBlazer.line(index.prev.x*2, index.prev.y*2, index.tip.x*2, index.tip.y*2);
+  // trailBlazer.line(index.prev.x*2, index.prev.y*2, index.tip.x*2, index.tip.y*2);
   // 1920 x 1440
   // trailBlazer.line(index.prev.x*3, index.prev.y*3, index.tip.x*3, index.tip.y*3);
   trailBlazer.pop();
@@ -168,8 +168,8 @@ function drawIndexTip() {
 
 function triggerTelomatic() {
   if (writeOn) {
-    // intensity = 255 - floor(index.tip.y / height * 255);
-    intensity = 255 - floor(index.tip.y*2 / 960 * 255);
+    intensity = 255 - floor(index.tip.y / height * 255);
+    // intensity = 255 - floor(index.tip.y*2 / 960 * 255);
     console.log(intensity);
     if (intensity > 50) {
       myBLE.write(myCharacteristic, intensity);
