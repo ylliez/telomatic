@@ -135,8 +135,8 @@ function loading() {
 /* displays webcam feed, if hand found, draws path at index fingertip */
 function running() {
   // Display mirror webcam feed
-  // let flippedVideo = ml5.flipImage(video);
-  // image(flippedVideo, 0, 0, width, height);
+  let flippedVideo = ml5.flipImage(video);
+  image(flippedVideo, 0, 0, width, height);
 
   // Check if there currently predictions to display
   if (predictions.length > 0) {
