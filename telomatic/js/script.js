@@ -33,7 +33,7 @@ function setup() {
   /* ml5 setup */
   // Start webcam and hide the resulting HTML element
   video = createCapture(VIDEO);
-  // video.hide();
+  video.hide();
   // start the Handpose model and switch to our running state when it loads
   handpose = ml5.handpose(video, { flipHorizontal: true }, () => { state = `running`; connectButton.show(); });
   // listen for prediction events from Handpose and store the results in our predictions array when they occur
