@@ -26,6 +26,10 @@ void error(const __FlashStringHelper*err) {
   while (1);
 }
 
+//void disconnected(void) {
+//  Serial.println( "Disconnected" );
+//}
+
 const int teloPin = 9;
 int teloVal = 0;
 
@@ -66,6 +70,9 @@ void setup(void) {
   // Set module to DATA mode
   ble.setMode(BLUEFRUIT_MODE_DATA);
 
+//  // Set disconnect callback
+//  ble.setDisconnectCallback(disconnected);
+
   Serial.println(F("----------------"));
 }
 
@@ -76,4 +83,15 @@ void loop(void) {
     Serial.println(teloVal);
     analogWrite(teloPin, teloVal);
   }
+//  ble.update(200);
+
+//  if (!ble.available()) {
+//    Serial.println("Disconnected!");
+//    analogWrite(teloPin, 0);
+//  }
+
+//  if (!ble.isConnected()) {
+//    Serial.println("Disconnected!");
+//    analogWrite(teloPin, 0);
+//  }
 }
