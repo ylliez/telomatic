@@ -1,8 +1,5 @@
-// Adafruit Feather M0 Bluefruit - HW SPI
+// TELOMATIC - ble - Adafruit Feather M0/32u4 Bluefruit - HW SPI
 
-#include <Arduino.h>
-#include <SPI.h>
-#include "Adafruit_BLE.h"
 #include "Adafruit_BluefruitLE_SPI.h"
 
 #define BUFSIZE                        128
@@ -15,17 +12,36 @@
 Adafruit_BluefruitLE_SPI ble(BLUEFRUIT_SPI_CS, BLUEFRUIT_SPI_IRQ, BLUEFRUIT_SPI_RST);
 
 #define FACTORYRESET_ENABLE         1
-#define MINIMUM_FIRMWARE_VERSION    "0.6.6"
-#define MODE_LED_BEHAVIOUR          "MODE"
+#define MINIMUM_FIRMWARE_VERSION    "0.7.0"
+#define MODE_LED_BEHAVIOUR          "DISABLE"
 
-// A small helper
+const int teloPin = 9;
+int teloVal = 0;
+
 void error(const __FlashStringHelper*err) {
   Serial.println(err);
   while (1);
 }
 
-const int teloPin = 9;
-int teloVal = 0;
+void connected(void) {
+  Serial.println("Telomatic connected!");
+  for (int i = 0 ; i < 2; i++) {
+    analogWrite(teloPin, 255);
+    delay(100);
+    analogWrite(teloPin, 0);
+    delay(100);
+  }
+}
+
+void disconnected(void) {
+    Serial.println("Telomatic disconnected!");
+    for (int i = 0 ; i < 3; i++) {
+      analogWrite(teloPin, 255);
+      delay(50);
+      analogWrite(teloPin, 0);
+      delay(500);
+    }
+}
 
 void setup(void) {
   
@@ -64,14 +80,19 @@ void setup(void) {
   // Set module to DATA mode
   ble.setMode(BLUEFRUIT_MODE_DATA);
 
+  // Set connection callbacks
+  ble.setConnectCallback(connected);
+  ble.setDisconnectCallback(disconnected);
+  
   Serial.println(F("----------------"));
 }
 
 void loop(void) {
-  while ( ble.available() ) {
+  if ( ble.available() ) {
     teloVal = ble.read();
     Serial.print("Intensity: ");
     Serial.println(teloVal);
     analogWrite(teloPin, teloVal);
   }
+  ble.update(100);
 }
