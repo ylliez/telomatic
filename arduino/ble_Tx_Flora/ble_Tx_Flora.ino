@@ -1,35 +1,31 @@
-/* TELOMATIC - ble - Flora + Flora Bluefruit */
+// TELOMATIC - ble - Flora + Flora Bluefruit - SW UART
 
-#include <Arduino.h>
-#include <SPI.h>
 #include "Adafruit_BluefruitLE_UART.h"
 
-#define BUFSIZE                        128   // Size of the read buffer for incoming data
-#define VERBOSE_MODE                   true  // If set to 'true' enables debug output
+#define BUFSIZE                        128
+#define VERBOSE_MODE                   true
 
 #define BLUEFRUIT_HWSERIAL_NAME      Serial1
 
-#define BLUEFRUIT_UART_MODE_PIN        12    // Set to -1 if unused
-#define BLUEFRUIT_UART_CTS_PIN         -1   // Required for software serial
-#define BLUEFRUIT_UART_RTS_PIN         -1   // Optional, set to -1 if unused
+#define BLUEFRUIT_UART_MODE_PIN        12
+#define BLUEFRUIT_UART_CTS_PIN         -1
+#define BLUEFRUIT_UART_RTS_PIN         -1
 
 Adafruit_BluefruitLE_UART ble(BLUEFRUIT_HWSERIAL_NAME, BLUEFRUIT_UART_MODE_PIN);
 
-#define FACTORYRESET_ENABLE         0   // set to 0 when deploying!
-#define MINIMUM_FIRMWARE_VERSION    "0.6.6"
+#define FACTORYRESET_ENABLE         0
+#define MINIMUM_FIRMWARE_VERSION    "0.7.0"
 #define MODE_LED_BEHAVIOUR          "DISABLE"
 
 const int teloPin = 9;
 int teloVal = 0;
 
-// A small helper
 void error(const __FlashStringHelper*err) {
   Serial.println(err);
   while (1);
 }
 
 void connected(void) {
-  ble.setMode(BLUEFRUIT_MODE_DATA);
   Serial.println("Telomatic connected!");
   for (int i = 0 ; i < 2; i++) {
     analogWrite(teloPin, 255);
@@ -37,11 +33,9 @@ void connected(void) {
     analogWrite(teloPin, 0);
     delay(100);
   }
-  ble.setMode(BLUEFRUIT_MODE_COMMAND);
 }
 
 void disconnected(void) {
-  ble.setMode(BLUEFRUIT_MODE_DATA);
     Serial.println("Telomatic disconnected!");
     for (int i = 0 ; i < 3; i++) {
     analogWrite(teloPin, 255);
@@ -49,7 +43,6 @@ void disconnected(void) {
     analogWrite(teloPin, 0);
     delay(500);
   }
-  ble.setMode(BLUEFRUIT_MODE_COMMAND);
 }
 
 void setup(void) {
