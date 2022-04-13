@@ -2,7 +2,6 @@
 
 #include <Arduino.h>
 #include <SPI.h>
-#include "Adafruit_BLE.h"
 #include "Adafruit_BluefruitLE_UART.h"
 
 #define BUFSIZE                        128   // Size of the read buffer for incoming data
@@ -10,15 +9,18 @@
 
 #define BLUEFRUIT_HWSERIAL_NAME      Serial1
 
-#define BLUEFRUIT_UART_MODE_PIN        -1    // Set to -1 if unused
+#define BLUEFRUIT_UART_MODE_PIN        12    // Set to -1 if unused
 #define BLUEFRUIT_UART_CTS_PIN         -1   // Required for software serial
 #define BLUEFRUIT_UART_RTS_PIN         -1   // Optional, set to -1 if unused
 
 Adafruit_BluefruitLE_UART ble(BLUEFRUIT_HWSERIAL_NAME, BLUEFRUIT_UART_MODE_PIN);
 
-#define FACTORYRESET_ENABLE         1   // set to 0 when deploying!
+#define FACTORYRESET_ENABLE         0   // set to 0 when deploying!
 #define MINIMUM_FIRMWARE_VERSION    "0.6.6"
 #define MODE_LED_BEHAVIOUR          "DISABLE"
+
+const int teloPin = 9;
+int teloVal = 0;
 
 // A small helper
 void error(const __FlashStringHelper*err) {
@@ -26,12 +28,12 @@ void error(const __FlashStringHelper*err) {
   while (1);
 }
 
-//void disconnected(void) {
-//  Serial.println( "Disconnected" );
-//}
-
-const int teloPin = 9;
-int teloVal = 0;
+void disconnected(void) {
+  ble.setMode(BLUEFRUIT_MODE_DATA);
+  analogWrite(teloPin, 0);
+  Serial.println("Disconnected!");
+  ble.setMode(BLUEFRUIT_MODE_COMMAND);
+}
 
 void setup(void) {
   
@@ -70,28 +72,18 @@ void setup(void) {
   // Set module to DATA mode
   ble.setMode(BLUEFRUIT_MODE_DATA);
 
-//  // Set disconnect callback
-//  ble.setDisconnectCallback(disconnected);
+  // Set disconnect callback
+  ble.setDisconnectCallback(disconnected);
 
   Serial.println(F("----------------"));
 }
 
 void loop(void) {
-  while ( ble.available() ) {
+  if ( ble.available() ) {
     teloVal = ble.read();
     Serial.print("Intensity: ");
     Serial.println(teloVal);
     analogWrite(teloPin, teloVal);
   }
-//  ble.update(200);
-
-//  if (!ble.available()) {
-//    Serial.println("Disconnected!");
-//    analogWrite(teloPin, 0);
-//  }
-
-//  if (!ble.isConnected()) {
-//    Serial.println("Disconnected!");
-//    analogWrite(teloPin, 0);
-//  }
+  ble.update(100);
 }
