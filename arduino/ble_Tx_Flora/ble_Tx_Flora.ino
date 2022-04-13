@@ -28,10 +28,27 @@ void error(const __FlashStringHelper*err) {
   while (1);
 }
 
+void connected(void) {
+  ble.setMode(BLUEFRUIT_MODE_DATA);
+  Serial.println("Telomatic connected!");
+  for (int i = 0 ; i < 2; i++) {
+    analogWrite(teloPin, 255);
+    delay(100);
+    analogWrite(teloPin, 0);
+    delay(100);
+  }
+  ble.setMode(BLUEFRUIT_MODE_COMMAND);
+}
+
 void disconnected(void) {
   ble.setMode(BLUEFRUIT_MODE_DATA);
-  analogWrite(teloPin, 0);
-  Serial.println("Disconnected!");
+    Serial.println("Telomatic disconnected!");
+    for (int i = 0 ; i < 3; i++) {
+    analogWrite(teloPin, 255);
+    delay(50);
+    analogWrite(teloPin, 0);
+    delay(500);
+  }
   ble.setMode(BLUEFRUIT_MODE_COMMAND);
 }
 
@@ -72,7 +89,8 @@ void setup(void) {
   // Set module to DATA mode
   ble.setMode(BLUEFRUIT_MODE_DATA);
 
-  // Set disconnect callback
+  // Set connection callbacks
+  ble.setConnectCallback(connected);
   ble.setDisconnectCallback(disconnected);
 
   Serial.println(F("----------------"));
