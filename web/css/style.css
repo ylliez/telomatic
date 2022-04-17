@@ -11,6 +11,7 @@ body {
   align-content: center;
   height: 100vh;
   overflow: hidden;
+  background-color: #000;
 }
 
 /* GUI */
