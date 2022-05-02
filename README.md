@@ -11,4 +11,4 @@ In theory, *Telomatic* is an interactive experience reverse-engineering embodied
 ### Installation diagram
 ![Installation diagram](GEN_install/diagram/telo_install_schem_v4_cctv-canopusE.png)
 ### Installation footprint
-![Installation footprint](GEN_install/footprint/telo_footprint_EB.png)
+![Installation footprint](GEN_install/footprint/telo_footprint_EBE.png)
