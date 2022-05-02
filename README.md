@@ -1,4 +1,4 @@
-# TELOMATIC
+# Telomatic
 *Telomatic* is an exploration of post-digital intersubjectivity, through sculptural and computational electronic art.<br>
 Drawing inspiration from telematic art, technology ethics and cypherpunk ideas, this project seeks to comment on and propose playfully engaging alternatives to the dematerialization of contemporary virtualized landscapes as well as address concerns of cybersecurity in our increasingly connected age.<br>
 In theory, it is an interactive experience reverse-engineering embodied possibilities of telematic experience. In practice, it presents as a silicone-cast telehaptic anal plug actuated by online interaction.<br>
