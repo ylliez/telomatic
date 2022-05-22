@@ -6,8 +6,13 @@ In theory, *Telomatic* is an interactive experience reverse-engineering embodied
 ## [Demo](https://ylliez.github.io/telomatic/web/)
 ## [Gallery](https://hybrid.concordia.ca/i_planch/telomatic/gallery/)
 ![Telomatic Gallery](GEN_install/graphic/QRstatic2.png)
+## [Documentation][doc/]
+![doc_sel/doc_1](doc_sel/doc_1.jpg)
+![doc_sel/doc_2](doc_sel/doc_2.jpg)
+![doc_sel/doc_3](doc_sel/doc_3.jpg)
+![doc_sel/doc_4](doc_sel/doc_4.jpg)
 ## [R&D](https://docs.google.com/document/d/171jCMU2Uvftuaj1wQvpLnJiblMUfXRC_yw7K845iRvM/edit#)
-### [Technical requirements](https://docs.google.com/spreadsheets/d/1EiCkT_d4SfhvJUTGcMUOAlP5tgtxAsZL5qKjLGzvXDs/edit#gid=1403493750)
+## [Technical requirements](https://docs.google.com/spreadsheets/d/1EiCkT_d4SfhvJUTGcMUOAlP5tgtxAsZL5qKjLGzvXDs/edit#gid=1403493750)
 ### Installation diagram
 ![Installation diagram](GEN_install/diagram/telo_install_schem_v4_cctv-canopusE.png)
 ### Installation footprint
