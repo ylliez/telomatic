@@ -15,7 +15,7 @@ Technically, the application rests on a structure of HTML & CSS, is scripted in 
 A few elements (e.g. PHP scripting and server implementation) were achieved with extensive help from Sabine Rosenberg.
 
 <!-- ## [Online](https://hybrid.concordia.ca/i_planch/telomatic/) -->
-## [Demo](web/)
+## [Demo](https://ylliez.github.io/telomatic/web/)
 ## [Gallery](https://hybrid.concordia.ca/i_planch/telomatic/gallery/)
 ![Telomatic Gallery](GEN_install/graphic/QRstatic2.png)
 ## [Documentation](doc/)
