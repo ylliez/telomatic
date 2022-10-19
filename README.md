@@ -16,12 +16,12 @@ A few elements (e.g. PHP scripting and server implementation) were achieved with
 
 <!-- ## [Online](https://hybrid.concordia.ca/i_planch/telomatic/) -->
 ## [Demo](https://ylliez.github.io/telomatic/web/)
+(server communication unsupported on GitHub, will crash when screenshot taken)
 ## [Gallery](https://hybrid.concordia.ca/i_planch/telomatic/gallery/)
-![Telomatic Gallery](GEN_install/graphic/QRstatic2.png)
-## [Documentation](doc/)
-## [R&D](https://docs.google.com/document/d/171jCMU2Uvftuaj1wQvpLnJiblMUfXRC_yw7K845iRvM/edit#)
-## [Technical requirements](https://docs.google.com/spreadsheets/d/1EiCkT_d4SfhvJUTGcMUOAlP5tgtxAsZL5qKjLGzvXDs/edit#gid=1403493750)
+## Technical requirements
+![Technical requirements](GEN_install/telo_install_techList.png)
 ### Installation diagram
 ![Installation diagram](GEN_install/diagram/telo_install_schem_v4_cctv-canopusE.png)
 ### Installation footprint
 ![Installation footprint](GEN_install/footprint/telo_footprint_EBE.png)
+## [R&D](https://docs.google.com/document/d/171jCMU2Uvftuaj1wQvpLnJiblMUfXRC_yw7K845iRvM/edit#)
