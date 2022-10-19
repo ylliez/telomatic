@@ -36,13 +36,13 @@ body {
 #sliderSize {
   width: 0;
   border: none;
-  background: #000
+  background: #000;
 }
 #sliderSize .ui-slider-handle {
   position: absolute;
-  background: inherit;
   border: none;
   border-radius: 100%;
+  background-color: #f0f;
 }
 #sliderSizeBox {
   position: absolute;
@@ -58,10 +58,11 @@ body {
 }
 
 i {
-  padding: 5px;
+  padding: 10px;
   border-radius: 15px;
-  background: #ccc;
-  opacity: 70%;
+  background: #000;
+  opacity: 80%;
+  color: #fff;
 }
 
 /* photobooth */

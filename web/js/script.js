@@ -51,11 +51,12 @@ let teloBLE, teloCharacteristic, teloIntensity;
 /* SETUP: initialize canvas, video and model */
 function setup() {
   // setup canvas relative to window dimension ratio
-  if (windowWidth < windowHeight * aspectRatio) {
-    createCanvas(windowWidth, windowWidth / aspectRatio);
-  } else {
-    createCanvas(windowHeight * aspectRatio, windowHeight);
-  }
+  // if (windowWidth < windowHeight * aspectRatio) {
+  //   createCanvas(windowWidth, windowWidth / aspectRatio);
+  // } else {
+  //   createCanvas(windowHeight * aspectRatio, windowHeight);
+  // }
+  createCanvas(windowWidth, windowWidth / aspectRatio);
   // setup MediaPipe model
   handposeSetup();
   // instantiate hand object to manipulate Handpose data
@@ -157,7 +158,7 @@ function setupSliders() {
   sliderSize.css("left", canvasWidth / 100 * 92.5);
   sliderSizeHandle.style.height = `${hand.size}px`;
   sliderSizeHandle.style.width = `${hand.size}px`;
-  sliderSizeBox.css("border-top", `${canvasHeight / 100 * 50}px solid #ccc`);
+  sliderSizeBox.css("border-top", `${canvasHeight / 100 * 50}px solid #000`);
   sliderSizeBox.css("border-left", `${canvasWidth / 100 * 2}px solid transparent`);
   sliderSizeBox.css("border-right", `${canvasWidth / 100 * 2}px solid transparent`);
   sliderSizeBox.css("left", `-${canvasWidth / 100 * 2}px`);
@@ -375,8 +376,8 @@ function generateQRcode() {
       // make styled QR code with headed image URL
       let qrcode = new QRCode("qrCodeDiv", {
         text: imageURL,
-        width: height/2,
-        height: height/2,
+        width: height / 2,
+        height: height / 2,
         colorDark: "#000000",
         colorLight: "#ffffff",
         correctLevel: QRCode.CorrectLevel.H
@@ -384,7 +385,7 @@ function generateQRcode() {
       // display div QR code is appended to
         qrDiv.css("display", "block");
       // create 10s timeout for QR display and GUI hiding
-      resetGUI = setTimeout( () => { resetGUIElements(); }, 10000);
+      resetGUI = setTimeout( () => { resetGUIElements(); }, 15000);
     },
     // helper function
     error: function() { console.log("error occurred"); }
@@ -396,6 +397,7 @@ function resetGUIElements() {
   qrDiv.css("display", "none");
   guiDiv.css("display", "block");
   qrTrig = false;
+  trailBlazer.clear();
 }
 
 // connect to device by passing the service UUID
