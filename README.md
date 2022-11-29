@@ -25,3 +25,4 @@ A few elements (e.g. PHP scripting and server implementation) were achieved with
 ### Installation footprint
 ![Installation footprint](GEN_install/footprint/telo_footprint_EBE.png)
 ## [R&D](https://docs.google.com/document/d/171jCMU2Uvftuaj1wQvpLnJiblMUfXRC_yw7K845iRvM/edit#)
+## [Hybrid](https://hybrid.concordia.ca/i_planch/telomatic/)
