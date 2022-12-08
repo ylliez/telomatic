@@ -1,0 +1,101 @@
+/* style.css
+main css
+establishes styling for main HTML page
+ */
+
+body {
+  padding: 0;
+  margin: 0;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #000;
+}
+
+/* GUI */
+#GUI {
+  position: relative;
+  opacity: 70%;
+}
+
+/* sliders */
+.slider {
+  position: absolute;
+  z-index: 2;
+}
+
+.sliderCol {
+  width: 15%;
+}
+#sliderColR .ui-slider-range, #sliderColR .ui-slider-handle { background: #ef2929; }
+#sliderColG .ui-slider-range, #sliderColG .ui-slider-handle { background: #8ae234; }
+#sliderColB .ui-slider-range, #sliderColB .ui-slider-handle { background: #729fcf; }
+
+#sliderSize {
+  width: 0;
+  border: none;
+  background: #000;
+}
+#sliderSize .ui-slider-handle {
+  position: absolute;
+  border: none;
+  border-radius: 100%;
+  background-color: #f0f;
+}
+#sliderSizeBox {
+  position: absolute;
+  width: 0;
+	height: 0;
+}
+
+/* icons */
+#qrIcon, #xIcon {
+  position: absolute;
+  border-radius: 15px;
+  z-index: 2;
+}
+
+i {
+  padding: 10px;
+  border-radius: 15px;
+  background: #000;
+  opacity: 80%;
+  color: #fff;
+}
+
+/* photobooth */
+#photobooth {
+  position: relative;
+  justify-content: center;
+  align-content: center;
+}
+
+#countdownDiv {
+  position: absolute;
+  z-index: 997;
+  opacity: 0;
+  background-color: transparent;
+  color: #000;
+  font-family: sans-serif;
+}
+
+#flashDiv {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 998;
+  opacity: 0;
+  background-color: #fff;
+ }
+
+ #qrCodeDiv {
+   position: absolute;
+   padding: 10px;
+   background-color: #bbb;
+   z-index: 999;
+   display: none;
+ }
