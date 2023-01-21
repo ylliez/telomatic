@@ -1,6 +1,7 @@
 # Telomatic
 *Telomatic* is an exploration of post-digital intersubjectivity through electronic, sculptural and computational art. <br><br>
 Drawing inspiration from telematic art, technology ethics and cypherpunk ideas, this project seeks to comment on and propose playfully engaging alternatives to the dematerialization of contemporary virtualized landscapes while addressing concerns of cybersecurity in our increasingly connected age. <br><br>
+<img src="assets/doc/telo3_EB.jpg" width="100%">
 ![doc/doc_epk/doc_epk_all](doc/doc_epk/doc_epk_all.jpg)<br><br>
 From an immediate socio-cultural standpoint, *Telomatic* is inspired by the rise of teledildonics, a phenomenon encompassing both the [creation]( http://dildo-generator.com/) and [advertisement](https://www.reddit.com/r/ToyControl/) (both commercial and DIY) of connected sex-toys, and consequent ethical questions concerning the [use](https://buttplug.io/), [abuse](https://www.bbc.com/news/technology-54436575) and [cybersecurity](https://www.wired.co.uk/article/sex-toy-bluetooth-hacks-security-fix) of such objects (cryptodildonics), theorized by researchers such as [Sarah Jamie Lewis](https://dl.acm.org/doi/10.1145/3139937.3139942). <br><br>
 Artistically, this piece follows in the footsteps of early telematic art, such as Heath Bunting’s 1994 King’s Cross Phone-In, which brought interactivity to the cybernetic realm and favoured a conceptually playful critical reading of technological progress. Within this broad world, *Telomatic* is specifically inspired by artists pushing the limits of corporeal cyberart, such as Marcel·lí Antúnez Roca, ORLAN and Stelarc, whose work (e.g. [Epizoo](doc/doc_epk/doc_epk_epizoo.jpeg), [Ping Body](doc/doc_epk/doc_epk_pingbody.jpg)) points to the amplifying effect of embodied materiality on telematic interactivity. <br><br>
@@ -18,11 +19,7 @@ A few elements (e.g. PHP scripting and server implementation) were achieved with
 ## [Demo](https://ylliez.github.io/telomatic/web/)
 (server communication unsupported on GitHub, will crash when screenshot taken)
 ## [Gallery](https://hybrid.concordia.ca/i_planch/telomatic/gallery/)
-## Technical requirements
-![Technical requirements](GEN_install/telo_install_techList.png)
 ### Installation diagram
 ![Installation diagram](GEN_install/diagram/telo_install_schem_v4_cctv-canopusE.png)
-### Installation footprint
-![Installation footprint](GEN_install/footprint/telo_footprint_EBE.png)
 ## [R&D](https://docs.google.com/document/d/171jCMU2Uvftuaj1wQvpLnJiblMUfXRC_yw7K845iRvM/edit#)
 ## [Hybrid](https://hybrid.concordia.ca/i_planch/telomatic/)
