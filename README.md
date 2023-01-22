@@ -7,8 +7,8 @@ From an immediate socio-cultural standpoint, *Telomatic* is inspired by the rise
 <br><br>
 Artistically, this piece follows in the footsteps of early telematic art, such as Heath Bunting’s 1994 King’s Cross Phone-In, which brought interactivity to the cybernetic realm and favoured a conceptually playful critical reading of technological progress. Within this broad world, *Telomatic* is specifically inspired by artists pushing the limits of corporeal cyberart, such as Marcel·lí Antúnez Roca, ORLAN and Stelarc, whose work (e.g. [Epizoo](doc/doc_epk/doc_epk_epizoo.jpeg), [Ping Body](doc/doc_epk/doc_epk_pingbody.jpg)) points to the amplifying effect of embodied materiality on telematic interactivity.
 <br><br>
-<img src="assets/other/epizoo.jpeg" width="49.8%">
-<img src="assets/doc/telo3_cam.jpg" width="49.8%">
+<img src="assets/other/epizoo.jpeg" width="49.75%">
+<img src="assets/doc/telo3_cam.jpg" width="49.75%">
 <br><br>
 In theory, *Telomatic* is an interactive experience reverse-engineering embodied possibilities of telematic experience via subverted teledildonics. In practice, it presents as a silicone-cast anal plug actuated by online interaction.
 <br><br>
