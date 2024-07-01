@@ -286,19 +286,23 @@ function writeToBLE(yPos) {
 // keyboard controls for BLE connection and functionality debugging
 function keyPressed() {
     // 'c' key toggles connection
-    if (keyCode === 67) {
-        if (!teloBLE.isConnected()) { connectToBLE(); }
-        else { disconnectFromBLE(); }
-    }
+    if (keyCode === 67) { toggleBLE(); }
     // 'f' key toggles fullscreen
-    if (keyCode === 70) {
-        if (!document.fullscreen) { document.body.requestFullscreen(); }
-        else { document.body.exitFullscreen(); }
-    }
+    if (keyCode === 70) { toggleFullscreen(); }
     // DEBUGGING: 'p' key screenprints
     if (keyCode === 80) { triggerQR(); }
     // DEBUGGING: 'x' key clears graphics elements
     if (keyCode === 88) { trailBlazer.clear(); }
+}
+
+function toggleBLE() {
+    if (!teloBLE.isConnected()) { connectToBLE(); }
+    else { disconnectFromBLE(); }
+}
+
+function toggleFullscreen() {
+    if (!document.fullscreen) { document.body.requestFullscreen(); }
+    else { document.body.exitFullscreen(); }
 }
 
 // hide GUI elements and trigger screenshot and QR code generation process

@@ -80,6 +80,26 @@ i {
     color: #fff;
 }
 
+/* buttons */
+.uiButton {
+    position: fixed;
+    border: none;
+    width: 15%;
+    height: 15%;
+    background-color: black;
+    z-index: 9999;
+    cursor: crosshair;
+    bottom: 0;
+}
+
+#bleButton {
+    left: 0;
+}
+
+#fullscreenButton {
+    right: 0;
+}
+
 /* photobooth */
 #photobooth {
     position: relative;
