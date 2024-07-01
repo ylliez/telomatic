@@ -6,7 +6,7 @@ let state = `load`;
 // video capture element, input feed and dimensions
 const captureElement = document.getElementById('capture');
 // 16:9 -> 1280 * 720
-// let capture, captureWidth = 1280, captureHeight = 720;
+let capture, captureWidth = 1280, captureHeight = 720;
 // 4:3 -> 640 * 480
 // let capture, captureWidth = 640, captureHeight = 480;
 // CCTV dims: 768 * 494 pixels (https://www.manualslib.com/manual/118015/Panasonic-Aw-E300.html?page=52#manual)
@@ -14,7 +14,7 @@ const captureElement = document.getElementById('capture');
 // dynamic -> window width & height
 // let capture, captureWidth = window.Width, captureHeight = window.Height;
 // Samsung TXE1970 dims?
-let capture, captureWidth = 400, captureHeight = 300;
+// let capture, captureWidth = 400, captureHeight = 300;
 // display aspect ratio
 const aspectRatio = captureWidth / captureHeight;
 // dynamic canvas dimensions
