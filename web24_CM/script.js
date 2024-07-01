@@ -10,9 +10,9 @@ const captureElement = document.getElementById('capture');
 // 4:3 -> 640 * 480
 // let capture, captureWidth = 640, captureHeight = 480;
 // CCTV dims: 768 * 494 pixels (https://www.manualslib.com/manual/118015/Panasonic-Aw-E300.html?page=52#manual)
-// let capture, captureWidth = 768, captureHeight = 494;
+let capture, captureWidth = 768, captureHeight = 494;
 // dynamic -> window width & height
-let capture, captureWidth = window.Width, captureHeight = window.Height;
+// let capture, captureWidth = window.Width, captureHeight = window.Height;
 // display aspect ratio
 const aspectRatio = captureWidth / captureHeight;
 // dynamic canvas dimensions
