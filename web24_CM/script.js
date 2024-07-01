@@ -6,15 +6,13 @@ let state = `load`;
 // video capture element, input feed and dimensions
 const captureElement = document.getElementById('capture');
 // 16:9 -> 1280 * 720
-// let capture, captureWidth = 1280, captureHeight = 720;
+let capture, captureWidth = 1280, captureHeight = 720;
 // 4:3 -> 640 * 480
-let capture, captureWidth = 640, captureHeight = 480;
+// let capture, captureWidth = 640, captureHeight = 480;
 // CCTV dims: 768 * 494 pixels (https://www.manualslib.com/manual/118015/Panasonic-Aw-E300.html?page=52#manual)
 // let capture, captureWidth = 768, captureHeight = 494;
 // dynamic -> window width & height
 // let capture, captureWidth = window.Width, captureHeight = window.Height;
-// Samsung TXE1970 dims?
-// let capture, captureWidth = 400, captureHeight = 300;
 // display aspect ratio
 const aspectRatio = captureWidth / captureHeight;
 // dynamic canvas dimensions
@@ -106,6 +104,7 @@ function setupGuiElements() {
     canvas = $("#defaultCanvas0");
     canvasWidth = parseInt(canvas.css("width"));
     canvasHeight = parseInt(canvas.css("height"));
+    console.log(canvasWidth, canvasHeight);
     // obtain and style GUI and photobooth divs
     guiDiv = $("#GUI");
     guiDiv.css("width", canvasWidth);

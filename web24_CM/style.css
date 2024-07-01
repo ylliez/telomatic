@@ -82,7 +82,7 @@ i {
 
 /* buttons */
 .uiButton {
-    position: fixed;
+    position: absolute;
     border: none;
     width: 15%;
     height: 15%;
