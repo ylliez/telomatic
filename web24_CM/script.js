@@ -285,30 +285,3 @@ function windowResized() {
     resizeCanvas(width, width / aspectRatio);
     setupGuiElements();
 }
-
-class Hand {
-    constructor() {
-        this.color = { r: 255, g: 0, b: 0 };
-        this.size = 10;
-        this.numberHands = 0;
-        this.predictions = [];
-    }
-
-    update() {
-        let color = this.color;
-        let size = this.size;
-        trailBlazer.stroke(color.r, color.g, color.b);
-        trailBlazer.strokeWeight(size);
-
-        this.numberHands = this.predictions.multiHandLandmarks.length;
-        this.predictions.multiHandLandmarks.forEach(hand => {
-            hand.forEach(({ x, y }) => {
-                let handX = x * width;
-                let handY = y * height;
-                trailBlazer.point(handX, handY);
-            });
-            let wristY = hand[0].y * height;
-            writeToBLE(wristY);
-        });
-    }
-}
