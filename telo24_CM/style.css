@@ -86,7 +86,8 @@ i {
   border: none;
   width: 15%;
   height: 15%;
-  background-color: black;
+  /* background-color: black; */
+  background-color: transparent;
   z-index: 9999;
   cursor: crosshair;
   bottom: 0;
