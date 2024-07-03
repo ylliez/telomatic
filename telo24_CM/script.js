@@ -76,8 +76,8 @@ function handposeSetup() {
     selfieMode: true,
     maxNumHands: 6,
     modelComplexity: 1,
-    minDetectionConfidence: 0.5,
-    minTrackingConfidence: 0.5
+    minDetectionConfidence: 0.4,
+    minTrackingConfidence: 0.4
   });
   // return and store handpose detection results
   hands.onResults((results) => {
